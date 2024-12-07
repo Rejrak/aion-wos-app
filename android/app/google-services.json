@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "990863299881",
+    "project_id": "aion-5a2c7",
+    "storage_bucket": "aion-5a2c7.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:990863299881:android:8fa5f52e846c3f11a95338",
+        "android_client_info": {
+          "package_name": "com.rejrak.wos"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyALKB8Nvhl7QJwjpJK5XT4ruLJ0yUOECFM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
