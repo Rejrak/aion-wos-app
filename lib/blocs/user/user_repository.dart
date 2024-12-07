@@ -4,6 +4,8 @@ import 'dart:convert';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:wos/models/training_plan.dart';
+import 'package:wos/models/user_model.dart';
+import 'package:wos/utils/crypto_utils.dart';
 
 class UserRepository {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
@@ -97,7 +99,4 @@ class UserRepository {
     await prefs.remove('userId');
     await prefs.remove('password');
   }
-
-
-
 }

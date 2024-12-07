@@ -1,5 +1,7 @@
 // app.dart
 import 'package:flutter/material.dart';
+import 'package:wos/screens/auth_screen.dart';
+import 'package:wos/screens/training_plan_list_screen.dart';
 
 class MyApp extends StatelessWidget {
 
@@ -12,7 +14,11 @@ class MyApp extends StatelessWidget {
         // primarySwatch: Colors.green,
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.green, brightness: Brightness.dark),
       ),
-      home: Container()
+      initialRoute: '/login',
+      routes: {
+        '/login': (context) => AuthScreen(),
+        '/trainingPlans': (context) => TrainingPlansListScreen(),
+      },
     );
   }
 }

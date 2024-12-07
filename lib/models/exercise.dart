@@ -1,41 +1,69 @@
-import 'package:wos/models/performance_entry.dart';
-
-class Exercise {
+class ExerciseType {
+  final String id;
   final String name;
-  final int series;
-  final int repetitions;
-  final Duration? restTime;
-  final String? notes;
-  final List<PerformanceEntry> performanceEntries;
+  final String muscleGroup;
 
-  Exercise({
+  ExerciseType({
+    required this.id,
     required this.name,
-    required this.series,
-    required this.repetitions,
-    this.restTime,
-    this.notes,
-    required this.performanceEntries,
+    required this.muscleGroup,
   });
 
   Map<String, dynamic> toJson() => {
+    'id': id,
     'name': name,
-    'series': series,
-    'repetitions': repetitions,
-    'restTime': restTime?.inSeconds,
-    'notes': notes,
-    'performanceEntries': performanceEntries.map((p) => p.toJson()).toList(),
+    'muscleGroup': muscleGroup,
   };
 
-  factory Exercise.fromJson(Map<String, dynamic> json) {
-    return Exercise(
+  factory ExerciseType.fromJson(Map<String, dynamic> json) {
+    return ExerciseType(
+      id: json['id'],
       name: json['name'],
-      series: json['series'],
-      repetitions: json['repetitions'],
-      restTime: json['restTime'] != null ? Duration(seconds: json['restTime']) : null,
-      notes: json['notes'],
-      performanceEntries: (json['performanceEntries'] as List)
-          .map((p) => PerformanceEntry.fromJson(p))
-          .toList(),
+      muscleGroup: json['muscleGroup'],
     );
   }
 }
+
+
+
+class Exercise {
+  final String id;
+  final String exerciseTypeID;
+  final String exercizeTypeName; // Nome del tipo di esercizio
+  final int series;
+  final int repetitions;
+  final String? notes;
+
+  Exercise({
+    required this.id,
+    required this.exerciseTypeID,
+    required this.exercizeTypeName, // Aggiunto il nome
+    required this.series,
+    required this.repetitions,
+    this.notes,
+  });
+
+  // Metodo per convertire in JSON
+  Map<String, dynamic> toJson() => {
+    'id': id,
+    'tipoEsercizioId': exerciseTypeID,
+    'tipoEsercizioName': exercizeTypeName, // Aggiunto nel JSON
+    'series': series,
+    'repetitions': repetitions,
+    'notes': notes,
+  };
+
+  // Metodo per creare da JSON
+  factory Exercise.fromJson(Map<String, dynamic> json) {
+    return Exercise(
+      id: json['id'],
+      exerciseTypeID: json['tipoEsercizioId'],
+      exercizeTypeName: json['tipoEsercizioName'], // Aggiunto nel costruttore
+      series: json['series'],
+      repetitions: json['repetitions'],
+      notes: json['notes'],
+    );
+  }
+}
+
+

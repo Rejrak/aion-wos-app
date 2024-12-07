@@ -1,16 +1,25 @@
-class UserModel {
-  final String id;
+class User {
+  final String userId;
   final String password;
 
-  UserModel({required this.id, required this.password});
+  User({required this.userId, required this.password});
 
-  Map<String, dynamic> toJson() => {
-    'id': id,
+  Map<String, dynamic> toMap() => {
+    'userId': userId,
     'password': password,
   };
 
-  static UserModel fromJson(Map<String, dynamic> json) => UserModel(
-    id: json['id'],
-    password: json['password'],
+  factory User.fromMap(Map<String, dynamic> map) => User(
+    userId: map['userId'],
+    password: map['password'],
   );
+}
+
+class UserSession {
+  static final UserSession _instance = UserSession._internal();
+  String? userId;
+
+  factory UserSession() => _instance;
+
+  UserSession._internal();
 }
